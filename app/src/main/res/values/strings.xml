@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">Communnect</string>
+
+    <!-- Main Strings-->
+    <string name="communect">communect</string>
+    <string name="slogan">Connecting communities, one swipe at a time.</string>
+    <string name="signup_google">Sign up with Google</string>
+    <string name="signup_email">Sign up with Email</string>
+    <string name="alrHaveAnAcc">Already have an account?</string>
+    <string name="signin_here">Sign in here!</string>
+    <string name="terms">By signing up, you agree to our Terms of Service and acknowledge that our Privacy Policy applies to you.</string>
+
+    <!--  Register & Sign in  -->
+    <string name="createAcc">CREATE ACCOUNT</string>
+    <string name="signinAcc">SIGN IN ACCOUNT</string>
+    <string name="fname">First Name</string>
+    <string name="lname">Last Name</string>
+    <string name="email">Email</string>
+    <string name="pass">Password</string>
+    <string name="confirm_pass">Confirm Password</string>
+    <string name="showPass">Show Password</string>
+    <string name="signup">Sign up</string>
+    <string name="signin">Sign in</string>
+    <string name="forgotPass">Forgot Password?</string>
+    <string name="dontHaveAcc">Don\'t have an account?</string>
+    <string name="createNewAcc">Create new account</string>
+</resources>

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "784203465129",
+    "project_id": "communnect-c9f02",
+    "storage_bucket": "communnect-c9f02.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:784203465129:android:d0454180362cd0acc484b8",
+        "android_client_info": {
+          "package_name": "com.example.communnect"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBz4pkOzPn0TJEzZTyejqI9WJz5n943ZD4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
