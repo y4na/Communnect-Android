@@ -1,13 +1,14 @@
 {
   "project_info": {
-    "project_number": "784203465129",
-    "project_id": "communnect-c9f02",
-    "storage_bucket": "communnect-c9f02.appspot.com"
+    "project_number": "133712154563",
+    "firebase_url": "https://communnect-android-default-rtdb.firebaseio.com",
+    "project_id": "communnect-android",
+    "storage_bucket": "communnect-android.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:784203465129:android:d0454180362cd0acc484b8",
+        "mobilesdk_app_id": "1:133712154563:android:b046f46ba533cdc95db776",
         "android_client_info": {
           "package_name": "com.example.communnect"
         }
@@ -15,7 +16,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyBz4pkOzPn0TJEzZTyejqI9WJz5n943ZD4"
+          "current_key": "AIzaSyBvupEIT7HmXo2gn3KPhr4zCMuwDTaDtVU"
         }
       ],
       "services": {
