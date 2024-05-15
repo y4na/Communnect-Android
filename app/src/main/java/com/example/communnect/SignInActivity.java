@@ -28,13 +28,8 @@ public class SignInActivity extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_sign_in);
 
-
+        //Clicking the sign in button will successfully go to the homepage
         btnSignIn = findViewById(R.id.btnSignIn);
-        cbShowHidePass = findViewById(R.id.cbShowHidePassword);
-        btnCreateNewAcc = findViewById(R.id.btnCreateNewAcc);
-        editPass = findViewById(R.id.editTextPassword);
-        btnForgotPass = findViewById(R.id.btnForgotPassword);
-
         btnSignIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -43,6 +38,8 @@ public class SignInActivity extends AppCompatActivity {
             }
         });
 
+        //This button will go to the register page if wala pay account
+        btnCreateNewAcc = findViewById(R.id.btnCreateNewAcc);
         btnCreateNewAcc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -51,6 +48,9 @@ public class SignInActivity extends AppCompatActivity {
             }
         });
 
+        //Handle the showing/hiding of characters sa password
+        cbShowHidePass = findViewById(R.id.cbShowHidePassword);
+        editPass = findViewById(R.id.editTextPassword);
         cbShowHidePass.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -61,6 +61,12 @@ public class SignInActivity extends AppCompatActivity {
                 }
             }
         });
+
+        //To be implemented
+        btnForgotPass = findViewById(R.id.btnForgotPassword);
+
+
+
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());

@@ -26,13 +26,8 @@ public class RegisterActivity extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_register);
 
-
-        cbShowHidePass = findViewById(R.id.cbShowHidePassword);
+        //Go to Sign in page. Clicking sign up will successfully create an account
         btnSignUp = findViewById(R.id.btnSignUp);
-        editPass = findViewById(R.id.editTextPassword);
-        editConfirmPass = findViewById(R.id.editTextConfirmPassword);
-
-
         btnSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -41,6 +36,11 @@ public class RegisterActivity extends AppCompatActivity {
             }
         });
 
+
+        //Handle the showing/hiding of characters sa password
+        cbShowHidePass = findViewById(R.id.cbShowHidePassword);
+        editPass = findViewById(R.id.editTextPassword);
+        editConfirmPass = findViewById(R.id.editTextConfirmPassword);
         cbShowHidePass.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
