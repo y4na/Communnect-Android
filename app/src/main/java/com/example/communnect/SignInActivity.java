@@ -51,7 +51,7 @@ public class SignInActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if(!validateUsername() | !validatePassword()){
-                    System.out.println("User name and password invalid");
+                    System.out.println("Username and password invalid");
                 } else {
                     checkUser();
                 }
