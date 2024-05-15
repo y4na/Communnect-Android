@@ -19,7 +19,7 @@ import androidx.core.view.WindowInsetsCompat;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button btnCreateAccount;
+    Button btnSignUpWithEmail, btnSignUpWithGoogle;
     TextView btnSignIn;
 
     @Override
@@ -29,15 +29,20 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
-        btnCreateAccount = findViewById(R.id.mainBtnEmail);
 
-        btnCreateAccount.setOnClickListener(new View.OnClickListener() {
+        //Sign up with google to be implemented in the future additional feature rana sya
+
+
+        //Creates account
+        btnSignUpWithEmail = findViewById(R.id.mainBtnEmail);
+        btnSignUpWithEmail.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(MainActivity.this, RegisterActivity.class));
             }
         });
 
+        //Go to sign in page
         btnSignIn = findViewById(R.id.mainBtnSignIn);
         btnSignIn.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -48,6 +53,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         //Terms of Service & Privacy Policy
+        //Para rani sa terms/privacy para ma himog link silang duha at the same time ma clickable
         TextView textAgreements = findViewById(R.id.textAgreements);
 
         SpannableString spannableString = new SpannableString(textAgreements.getText());
@@ -63,6 +69,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 // Handle click action for Terms of Service
                 // Example: Open Terms of Service activity or web page
+                //Wala pay page
             }
         };
         spannableString.setSpan(clickableSpanTerms, startIndexTerms, endIndexTerms, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
@@ -72,6 +79,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 // Handle click action for Privacy Policy
                 // Example: Open Privacy Policy activity or web page
+                // Wala pay page
             }
         };
         spannableString.setSpan(clickableSpanPrivacy, startIndexPrivacy, endIndexPrivacy, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
