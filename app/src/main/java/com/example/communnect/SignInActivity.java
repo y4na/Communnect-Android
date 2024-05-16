@@ -113,7 +113,8 @@ public class SignInActivity extends AppCompatActivity {
 
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference("users");
         Query checkUserDatabase = reference.orderByChild("email").equalTo(userEmail);
-
+       // reference.orderByChild("email").get();
+        Toast.makeText(this, "heheheheehehehee", Toast.LENGTH_SHORT).show();
         checkUserDatabase.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -153,5 +154,6 @@ public class SignInActivity extends AppCompatActivity {
                 Toast.makeText(SignInActivity.this, "Database Error: " + error.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
+
     }
 }

@@ -30,7 +30,7 @@
         android:layout_height="match_parent">
 
         <TextView
-            android:id="@+id/textView4"
+            android:id="@+id/txt_CompleteName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="155dp"
@@ -51,7 +51,7 @@
             android:text="Member Since:"
             android:textColor="#B9EDBE"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView4" />
+             />
 
         <TextView
             android:id="@+id/textView3"
@@ -63,7 +63,7 @@
             android:text="DatefromDatabase"
             android:textColor="#B9EDBE"
             app:layout_constraintStart_toEndOf="@+id/textView2"
-            app:layout_constraintTop_toBottomOf="@+id/textView4" />
+            />
 
         <Button
             android:id="@+id/btnEdit"
@@ -117,7 +117,7 @@
                         android:layout_weight="1"
 
                         android:gravity="center_vertical"
-                        android:text="Issuances" />
+                        android:text="Requested Services" />
 
                     <ImageButton
                         android:id="@+id/imageButton1"
@@ -154,7 +154,7 @@
                         android:layout_weight="1"
 
                         android:gravity="center_vertical"
-                        android:text="History" />
+                        android:text="Notification" />
 
                     <ImageButton
                         android:id="@+id/imageButton2"
@@ -301,7 +301,7 @@
                         android:layout_weight="1"
 
                         android:gravity="center_vertical"
-                        android:text="Feed Preferences" />
+                        android:text="Privacy Policy" />
 
                     <ImageButton
                         android:id="@+id/imageButton6"
@@ -336,7 +336,7 @@
                         android:layout_weight="1"
 
                         android:gravity="center_vertical"
-                        android:text="Subscription" />
+                        android:text="Help and Support" />
 
                     <ImageButton
                         android:id="@+id/imageButton7"

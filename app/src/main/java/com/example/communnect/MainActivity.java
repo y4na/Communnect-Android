@@ -21,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
 
     Button btnCreateAccount;
     TextView btnSignIn;
+   // public static String full_name;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
