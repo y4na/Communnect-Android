@@ -129,7 +129,7 @@ public class SignInActivity extends AppCompatActivity {
                             String lastnameFromDB = userSnapshot.child("lastname").getValue(String.class);
 
                             // Proceed with login
-                            Intent intent = new Intent(SignInActivity.this, HomepageActivity.class);
+                            Intent intent = new Intent(SignInActivity.this, DashboardActivity.class);
                             intent.putExtra("name", nameFromDB);
                             intent.putExtra("email", emailFromDB);
                             intent.putExtra("lastname", lastnameFromDB);
