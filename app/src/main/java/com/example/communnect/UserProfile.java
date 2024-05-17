@@ -11,15 +11,24 @@ public class UserProfile {
         void onCallback(String fullName);
     }
     public void getFullname(final FullNameCallback callback){
-        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("users");
+      //  MainActivity.UserId
+
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("users").child(MainActivity.UserId);
         reference.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                String name = dataSnapshot.child("name").getValue(String.class);
-                String familyName = dataSnapshot.child("lastname").getValue(String.class);
-                String fullName = name + " " + familyName;
-
-                callback.onCallback(fullName);
+                if (dataSnapshot.exists()) {
+                    String name = dataSnapshot.child("name").getValue(String.class);
+                    String familyName = dataSnapshot.child("lastname").getValue(String.class);
+                    if (name != null && familyName != null) {
+                        String fullName = name + " " + familyName;
+                        callback.onCallback(fullName);
+                    } else {
+                        callback.onCallback(null);
+                    }
+                } else {
+                    callback.onCallback(null);
+                }
             }
 
             @Override

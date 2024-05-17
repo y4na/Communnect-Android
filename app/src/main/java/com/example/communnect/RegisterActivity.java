@@ -132,5 +132,6 @@ public class RegisterActivity extends AppCompatActivity {
                 }
             }
         });
+        MainActivity.UserId=firstName;
     }
 }

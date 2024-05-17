@@ -20,6 +20,7 @@ public class ProfileActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
         setTextFullName=findViewById(R.id.txt_CompleteName);
+
         UserProfile userProfile = new UserProfile();
         userProfile.getFullname(new UserProfile.FullNameCallback(){
 
