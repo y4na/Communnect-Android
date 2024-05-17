@@ -137,6 +137,7 @@ public class SignInActivity extends AppCompatActivity {
                             intent.putExtra("password", passwordFromDB);
                             startActivity(intent);
                             MainActivity.UserId=nameFromDB;
+                            //pass para sa read sa profle
                             finish(); // Finish the LoginActivity to prevent going back
                         } else {
                             signInPassword.setError("Invalid Credentials");

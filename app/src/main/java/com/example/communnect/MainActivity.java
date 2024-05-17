@@ -19,6 +19,7 @@ import androidx.core.view.WindowInsetsCompat;
 
 public class MainActivity extends AppCompatActivity {
     public static String UserId;
+    //para pass sa value to read
 
     Button btnCreateAccount;
     TextView btnSignIn;

@@ -36,6 +36,6 @@ public class ProfileActivity extends AppCompatActivity {
             }
         });
     }
-    // get Full name
+
 
 }
