@@ -18,9 +18,12 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 public class MainActivity extends AppCompatActivity {
+    public static String UserId;
+    //para pass sa value to read
 
     Button btnCreateAccount;
     TextView btnSignIn;
+   // public static String full_name;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

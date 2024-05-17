@@ -113,7 +113,8 @@ public class SignInActivity extends AppCompatActivity {
 
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference("users");
         Query checkUserDatabase = reference.orderByChild("email").equalTo(userEmail);
-
+       // reference.orderByChild("email").get();
+        Toast.makeText(this, "heheheheehehehee", Toast.LENGTH_SHORT).show();
         checkUserDatabase.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -135,6 +136,8 @@ public class SignInActivity extends AppCompatActivity {
                             intent.putExtra("lastname", lastnameFromDB);
                             intent.putExtra("password", passwordFromDB);
                             startActivity(intent);
+                            MainActivity.UserId=nameFromDB;
+                            //pass para sa read sa profle
                             finish(); // Finish the LoginActivity to prevent going back
                         } else {
                             signInPassword.setError("Invalid Credentials");
@@ -153,5 +156,6 @@ public class SignInActivity extends AppCompatActivity {
                 Toast.makeText(SignInActivity.this, "Database Error: " + error.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
+
     }
 }

@@ -132,5 +132,7 @@ public class RegisterActivity extends AppCompatActivity {
                 }
             }
         });
+        MainActivity.UserId=firstName;
+        //pass para sa read sa profle
     }
 }
