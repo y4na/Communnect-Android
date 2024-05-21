@@ -84,10 +84,10 @@ public class NewsFragment extends Fragment implements CategoryRVAdapter.Category
             String searchURL = "https://newsapi.org/v2/everything?q=" + query + "&apiKey=54179ecfee9f4e3ba215794d949fd4df";
             call = retrofitAPI.getNewsBySearch(searchURL);
         } else if(category.equals("All")) {
-            String url = "https://newsapi.org/v2/top-headlines?country=ph&excludeDomains=stackoverflow.com&sortBy=publishedAt&language=en&apiKey=54179ecfee9f4e3ba215794d949fd4df";
+            String url = "https://newsapi.org/v2/top-headlines?country=us&language=en&apiKey=54179ecfee9f4e3ba215794d949fd4df";
             call = retrofitAPI.getAllNews(url);
         } else {
-            String categoryURL = "https://newsapi.org/v2/top-headlines?country=ph&category=" + category + "&apiKey=54179ecfee9f4e3ba215794d949fd4df";
+            String categoryURL = "https://newsapi.org/v2/top-headlines?country=us&category=" + category + "&apiKey=54179ecfee9f4e3ba215794d949fd4df";
             call = retrofitAPI.getNewsByCategory(categoryURL);
         }
 
