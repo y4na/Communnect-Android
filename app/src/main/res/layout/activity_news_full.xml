@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".NewsFullActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/idToolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="15dp"
+                android:layout_marginRight="15dp"
+                android:padding="4dp"
+                android:text="COMMUNNECT"
+                android:textAlignment="textStart"
+                android:textStyle="bold"
+                android:textColor="@color/greenText"
+                android:textSize="25dp"
+                />
+        </RelativeLayout>
+    </androidx.appcompat.widget.Toolbar>
+
+    <WebView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/web_view"
+        android:layout_below="@id/idToolbar"/>
+
+</RelativeLayout>
