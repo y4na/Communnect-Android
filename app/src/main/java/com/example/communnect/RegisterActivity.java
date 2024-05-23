@@ -41,7 +41,6 @@ public class RegisterActivity extends AppCompatActivity {
         mFirstNameEt = findViewById(R.id.editTextFname); // Firstname edit text
         mLastNameEt = findViewById(R.id.editTextLname);   // Lastname edit text
         mEmailEt = findViewById(R.id.editTextEmail); // email edit text
-//        editPass = findViewById(R.id.editTextPassword); // password edit text
         mPasswordEt = findViewById(R.id.editTextPassword); // Initialize mPasswordEt here
         editConfirmPass = findViewById(R.id.editTextConfirmPassword); //confirm password edit text
         cbShowHidePass = findViewById(R.id.cbShowHidePassword); // show hide password checkbox
@@ -58,10 +57,10 @@ public class RegisterActivity extends AppCompatActivity {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked) {
-                    editPass.setTransformationMethod(null);
+                    mPasswordEt.setTransformationMethod(null);
                     editConfirmPass.setTransformationMethod(null);
                 } else {
-                    editPass.setTransformationMethod(new PasswordTransformationMethod());
+                    mPasswordEt.setTransformationMethod(new PasswordTransformationMethod());
                     editConfirmPass.setTransformationMethod(new PasswordTransformationMethod());
                 }
             }
@@ -80,6 +79,7 @@ public class RegisterActivity extends AppCompatActivity {
 
         String email = mEmailEt.getText().toString().trim();
         String password = mPasswordEt.getText().toString().trim();
+        String confirmPassword = editConfirmPass.getText().toString().trim();
         String firstName = mFirstNameEt.getText().toString().trim();
         String lastName = mLastNameEt.getText().toString().trim();
 
@@ -104,6 +104,12 @@ public class RegisterActivity extends AppCompatActivity {
         if (password.length() < 6) {
             mPasswordEt.setError("Password length should be at least 6 characters");
             mPasswordEt.requestFocus();
+            return;
+        }
+
+        if (!password.equals(confirmPassword)) {
+            editConfirmPass.setError("Passwords do not match");
+            editConfirmPass.requestFocus();
             return;
         }
 
