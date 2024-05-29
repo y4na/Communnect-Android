@@ -26,6 +26,9 @@ public class NewsFragment extends Fragment implements CategoryRVAdapter.Category
 
     //54179ecfee9f4e3ba215794d949fd4df
 
+
+    private final String api_key = "669ecbdf65f247a78f5d4d044101eeb2";
+
     private RecyclerView newsRV, categoryRV;
     private ProgressBar loadingPB;
     private ArrayList<Articles> articlesArrayList;
@@ -38,22 +41,22 @@ public class NewsFragment extends Fragment implements CategoryRVAdapter.Category
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_news, container, false);
 
-        searchView  = view.findViewById(R.id.search_view);
+//        searchView  = view.findViewById(R.id.search_view);
         newsRV = view.findViewById(R.id.idRVNews);
         categoryRV = view.findViewById(R.id.idRVCategories);
         loadingPB = view.findViewById(R.id.idPBLoading);
-        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-            @Override
-            public boolean onQueryTextSubmit(String query) {
-                getNews("ALL", query);
-                return true;
-            }
-
-            @Override
-            public boolean onQueryTextChange(String newText) {
-                return false;
-            }
-        });
+//        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+//            @Override
+//            public boolean onQueryTextSubmit(String query) {
+//                getNews("ALL", query);
+//                return true;
+//            }
+//
+//            @Override
+//            public boolean onQueryTextChange(String newText) {
+//                return false;
+//            }
+//        });
         articlesArrayList = new ArrayList<>();
         categoryRVModalArrayList = new ArrayList<>();
 
@@ -81,13 +84,13 @@ public class NewsFragment extends Fragment implements CategoryRVAdapter.Category
         Call<NewsModal> call;
 
         if(query != null && !query.isEmpty()) {
-            String searchURL = "https://newsapi.org/v2/everything?q=" + query + "&apiKey=54179ecfee9f4e3ba215794d949fd4df";
+            String searchURL = "https://newsapi.org/v2/everything?q=" + query + "&apiKey=669ecbdf65f247a78f5d4d044101eeb2";
             call = retrofitAPI.getNewsBySearch(searchURL);
         } else if(category.equals("All")) {
-            String url = "https://newsapi.org/v2/top-headlines?country=us&language=en&apiKey=54179ecfee9f4e3ba215794d949fd4df";
+            String url = "https://newsapi.org/v2/top-headlines?country=us&language=en&apiKey=669ecbdf65f247a78f5d4d044101eeb2";
             call = retrofitAPI.getAllNews(url);
         } else {
-            String categoryURL = "https://newsapi.org/v2/top-headlines?country=us&category=" + category + "&apiKey=54179ecfee9f4e3ba215794d949fd4df";
+            String categoryURL = "https://newsapi.org/v2/top-headlines?country=us&category=" + category + "&apiKey=669ecbdf65f247a78f5d4d044101eeb2";
             call = retrofitAPI.getNewsByCategory(categoryURL);
         }
 
