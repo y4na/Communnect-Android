@@ -10,6 +10,11 @@ public class HelperClass {
         this.email = email;
         this.password = password;
     }
+    /*public HelperClass(String firstname, String lastname) {
+        this.firstname = firstname;
+        this.lastname = lastname;
+
+    }*/
 
     public String getName() {
         return firstname;
@@ -26,8 +31,11 @@ public class HelperClass {
     public void setLastname(String lastname) {
         this.lastname = lastname;
     }
+    public void setFirstname(String firstname) {
+        this.firstname = firstname;
+    }
 
-    public String getEmail() {
+    public  String getEmail() {
         return email;
     }
 

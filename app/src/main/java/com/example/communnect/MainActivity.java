@@ -18,12 +18,12 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 public class MainActivity extends AppCompatActivity {
-    public static String UserId;
-    //para pass sa value to read
+
+
 
     Button btnCreateAccount;
     TextView btnSignIn;
-   // public static String full_name;
+    // public static String full_name;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
-        btnCreateAccount = findViewById(R.id.mainBtnEmail);
+       btnCreateAccount = findViewById(R.id.mainBtnEmail);
 
         btnCreateAccount.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -93,4 +93,5 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
     }
+
 }

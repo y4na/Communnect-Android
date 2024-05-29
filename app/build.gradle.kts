@@ -39,7 +39,7 @@ dependencies {
     implementation("com.squareup.picasso:picasso:2.71828")
     implementation("com.squareup.retrofit2:retrofit:2.9.0")
     implementation("com.squareup.retrofit2:converter-gson:2.5.0")
-
+    implementation("com.github.dhaval2404:imagepicker:2.1")
 
     implementation(libs.appcompat)
     implementation(libs.material)

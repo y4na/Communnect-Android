@@ -17,10 +17,15 @@ public class DashboardActivity extends AppCompatActivity {
     FavoritesFragment favoritesFragment = new FavoritesFragment();
     ProfileFragment profileFragment = new ProfileFragment();
 
+    private String userId;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
+
+        // Retrieve userId from the Intent
+        userId = getIntent().getStringExtra("userId");
 
         bottomNavigationView = findViewById(R.id.bottom_navigation);
 
@@ -40,6 +45,10 @@ public class DashboardActivity extends AppCompatActivity {
                         getSupportFragmentManager().beginTransaction().replace(R.id.container, favoritesFragment).commit();
                         return true;
                     case R.id.nav_profile:
+                        // Pass userId to the ProfileFragment using a Bundle
+                        Bundle args = new Bundle();
+                        args.putString("userId", userId);
+                        profileFragment.setArguments(args);
                         getSupportFragmentManager().beginTransaction().replace(R.id.container, profileFragment).commit();
                         return true;
                 }
