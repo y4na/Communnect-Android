@@ -38,9 +38,9 @@ public class DashboardActivity extends AppCompatActivity {
                     case R.id.nav_news:
                         getSupportFragmentManager().beginTransaction().replace(R.id.container, newsFragment).commit();
                         return true;
-                    case R.id.nav_search:
-                        getSupportFragmentManager().beginTransaction().replace(R.id.container, searchFragment).commit();
-                        return true;
+//                    case R.id.nav_search:
+//                        getSupportFragmentManager().beginTransaction().replace(R.id.container, searchFragment).commit();
+//                        return true;
                     case R.id.nav_favorite:
                         getSupportFragmentManager().beginTransaction().replace(R.id.container, favoritesFragment).commit();
                         return true;

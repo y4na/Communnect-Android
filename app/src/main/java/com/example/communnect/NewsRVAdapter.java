@@ -14,13 +14,20 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class NewsRVAdapter extends RecyclerView.Adapter<NewsRVAdapter.ViewHolder> {
     private ArrayList<Articles> articlesArrayList;
+    public List<FavoriteNews> favoriteNewsList;
     private Context context;
 
     public NewsRVAdapter(ArrayList<Articles> articlesArrayList, Context context) {
         this.articlesArrayList = articlesArrayList;
+        this.context = context;
+    }
+
+    public NewsRVAdapter(List<FavoriteNews> favoriteNewsList, Context context) {
+        this.favoriteNewsList = favoriteNewsList;
         this.context = context;
     }
 
@@ -50,12 +57,18 @@ public class NewsRVAdapter extends RecyclerView.Adapter<NewsRVAdapter.ViewHolder
 
 
             }
+
+
         });
     }
 
     @Override
     public int getItemCount() {
         return articlesArrayList.size();
+    }
+
+    public List<Articles> getArticlesList() {
+        return new ArrayList<>(articlesArrayList); // Return a copy of the list to prevent external modifications
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{

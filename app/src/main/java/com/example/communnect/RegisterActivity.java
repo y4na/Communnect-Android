@@ -9,7 +9,6 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -139,6 +138,8 @@ public class RegisterActivity extends AppCompatActivity {
                 }
             }
         });
+        MainActivity.UserId = firstName;
+
     }
 
 }

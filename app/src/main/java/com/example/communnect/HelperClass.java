@@ -1,14 +1,20 @@
 package com.example.communnect;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class HelperClass {
 
     String firstname, lastname, email, password;
+    public List<String> bookmarks;
+
 
     public HelperClass(String firstname, String lastname, String email, String password) {
         this.firstname = firstname;
         this.lastname = lastname;
         this.email = email;
         this.password = password;
+        this.bookmarks = new ArrayList<>();
     }
     /*public HelperClass(String firstname, String lastname) {
         this.firstname = firstname;

@@ -10,8 +10,12 @@ public interface RetrofitAPI {
     Call<NewsModal> getAllNews(@Url String url);
 
     @GET
-    Call<NewsModal>getNewsByCategory(@Url String url);
+    Call<NewsModal> getNewsByCategory(@Url String url);
 
     @GET
     Call<NewsModal> getNewsBySearch(@Url String url);
+
+    @GET("favorite-articles")
+    Call<NewsModal> getFavoriteArticles();
+
 }
