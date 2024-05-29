@@ -20,16 +20,16 @@
             <ImageView
                 android:id="@+id/splashLogo"
                 android:layout_width="100dp"
-                android:layout_height="100dp"
+                android:layout_height="80dp"
                 android:layout_gravity="center"
                 android:scaleType="fitCenter"
                 app:srcCompat="@drawable/communnect_logo_green" />
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="181dp"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/montserrat_bold"
                 android:layout_gravity="center"
+                android:fontFamily="@font/montserrat_bold"
                 android:text="communnect"
                 android:textAllCaps="false"
                 android:textColor="@color/greenText"

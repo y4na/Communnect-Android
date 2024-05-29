@@ -38,12 +38,12 @@ public class DashboardActivity extends AppCompatActivity {
                     case R.id.nav_news:
                         getSupportFragmentManager().beginTransaction().replace(R.id.container, newsFragment).commit();
                         return true;
-//                    case R.id.nav_search:
-//                        getSupportFragmentManager().beginTransaction().replace(R.id.container, searchFragment).commit();
-//                        return true;
-                    case R.id.nav_favorite:
-                        getSupportFragmentManager().beginTransaction().replace(R.id.container, favoritesFragment).commit();
+                    case R.id.nav_search:
+                        getSupportFragmentManager().beginTransaction().replace(R.id.container, searchFragment).commit();
                         return true;
+//                    case R.id.nav_favorite:
+//                        getSupportFragmentManager().beginTransaction().replace(R.id.container, favoritesFragment).commit();
+//                        return true;
                     case R.id.nav_profile:
                         // Pass userId to the ProfileFragment using a Bundle
                         Bundle args = new Bundle();
