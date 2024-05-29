@@ -124,8 +124,9 @@ public class RegisterActivity extends AppCompatActivity {
             return;
         }
 
+        String userId = reference.push().getKey();
         HelperClass helperClass = new HelperClass(firstName, lastName, email, password);
-        reference.child(firstName).setValue(helperClass, new DatabaseReference.CompletionListener() {
+        reference.child(userId).setValue(helperClass, new DatabaseReference.CompletionListener() {
             @Override
             public void onComplete(DatabaseError databaseError, DatabaseReference databaseReference) {
                 if (databaseError != null) {
@@ -138,6 +139,7 @@ public class RegisterActivity extends AppCompatActivity {
             }
         });
         MainActivity.UserId = firstName;
+
     }
 
 }

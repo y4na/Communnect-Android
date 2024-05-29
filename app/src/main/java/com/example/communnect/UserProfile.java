@@ -10,10 +10,9 @@ public class UserProfile {
     public interface FullNameCallback {
         void onCallback(String fullName);
     }
-    public void getFullname(final FullNameCallback callback){
-      //  MainActivity.UserId
 
-        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("users").child(MainActivity.UserId);
+    public void getFullname(String userId, final FullNameCallback callback) {
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("users").child(userId);
         reference.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -38,5 +37,4 @@ public class UserProfile {
             }
         });
     }
-    //lastname raman diay ang i read tas i combine sa gikuha na data from the sign-up or register
 }

@@ -107,24 +107,25 @@ public class SignInActivity extends AppCompatActivity {
         }
     }
 
-    public void checkUser(){
+    public void checkUser() {
         String userEmail = signInEmail.getText().toString().trim();
         String userPassword = signInPassword.getText().toString().trim();
 
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference("users");
         Query checkUserDatabase = reference.orderByChild("email").equalTo(userEmail);
+
        // reference.orderByChild("email").get();
         Toast.makeText(this, "Welcome!", Toast.LENGTH_SHORT).show();
         checkUserDatabase.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-
-                if (snapshot.exists()){
+                if (snapshot.exists()) {
                     for (DataSnapshot userSnapshot : snapshot.getChildren()) {
                         String passwordFromDB = userSnapshot.child("password").getValue(String.class);
+                        String userId = userSnapshot.getKey();
 
-                        if (passwordFromDB != null && passwordFromDB.equals(userPassword)){
-                            //Valid credentials
+                        if (passwordFromDB != null && passwordFromDB.equals(userPassword)) {
+                            // Valid credentials
                             String nameFromDB = userSnapshot.child("name").getValue(String.class);
                             String emailFromDB = userSnapshot.child("email").getValue(String.class);
                             String lastnameFromDB = userSnapshot.child("lastname").getValue(String.class);
@@ -135,9 +136,9 @@ public class SignInActivity extends AppCompatActivity {
                             intent.putExtra("email", emailFromDB);
                             intent.putExtra("lastname", lastnameFromDB);
                             intent.putExtra("password", passwordFromDB);
+                            intent.putExtra("userId", userId); // Pass the userId
                             startActivity(intent);
-                            MainActivity.UserId=nameFromDB;
-                            //pass para sa read sa profle
+
                             finish(); // Finish the LoginActivity to prevent going back
                         } else {
                             signInPassword.setError("Invalid Credentials");
@@ -156,6 +157,6 @@ public class SignInActivity extends AppCompatActivity {
                 Toast.makeText(SignInActivity.this, "Database Error: " + error.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
-
     }
+
 }
