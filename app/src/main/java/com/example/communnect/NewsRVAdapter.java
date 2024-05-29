@@ -18,10 +18,16 @@ import java.util.List;
 
 public class NewsRVAdapter extends RecyclerView.Adapter<NewsRVAdapter.ViewHolder> {
     private ArrayList<Articles> articlesArrayList;
+    public List<FavoriteNews> favoriteNewsList;
     private Context context;
 
     public NewsRVAdapter(ArrayList<Articles> articlesArrayList, Context context) {
         this.articlesArrayList = articlesArrayList;
+        this.context = context;
+    }
+
+    public NewsRVAdapter(List<FavoriteNews> favoriteNewsList, Context context) {
+        this.favoriteNewsList = favoriteNewsList;
         this.context = context;
     }
 
