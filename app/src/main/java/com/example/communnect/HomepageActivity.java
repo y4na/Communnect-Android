@@ -28,11 +28,6 @@ public class HomepageActivity extends AppCompatActivity {
             Toast.makeText(this, paraadtosaprof.getText(), Toast.LENGTH_SHORT).show();
 
         }
-        paraadtosaprof.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(HomepageActivity.this, ProfileActivity.class));
-            }
-        });
+
     }
 }
