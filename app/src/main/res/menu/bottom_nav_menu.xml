@@ -5,12 +5,8 @@
         android:title="News"
         android:icon="@drawable/newspaper_icon"/>
     <item
-        android:id="@+id/nav_search"
-        android:title="Search"
-        android:icon="@drawable/search_icon"/>
-    <item
         android:id="@+id/nav_favorite"
-        android:title="Favorite"
+        android:title="Favorites"
         android:icon="@drawable/favorite_icon"/>
     <item
         android:id="@+id/nav_profile"
