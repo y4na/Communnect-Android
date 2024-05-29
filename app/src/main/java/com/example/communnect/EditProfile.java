@@ -131,6 +131,7 @@ public class EditProfile extends AppCompatActivity {
                     Toast.makeText(EditProfile.this, "Data could not be updated " + databaseError.getMessage(), Toast.LENGTH_SHORT).show();
                 } else {
                     Toast.makeText(EditProfile.this, "Profile updated successfully!", Toast.LENGTH_SHORT).show();
+                    finish();
                 }
             }
         });
