@@ -122,14 +122,11 @@ public class NewsDeatilActivity extends AppCompatActivity {
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
-                // Handle onCancelled
             }
         });
     }
 
     private void markAsFavorite() {
-        // Your code to save the article as favorite in Firebase
-        // After successful marking, set isFavorite to true
         userRef.child("favorites").push().setValue(url)
                 .addOnSuccessListener(aVoid -> {
                     Toast.makeText(NewsDeatilActivity.this, "Marked as Favorite", Toast.LENGTH_SHORT).show();
@@ -140,10 +137,7 @@ public class NewsDeatilActivity extends AppCompatActivity {
     }
 
     private void unmarkAsFavorite() {
-        // Your code to remove the article from favorites in Firebase
-        // After successful unmarking, set isFavorite to false
-        // For demonstration, I assume you have a method to retrieve the key of the saved news
-        userRef.child("favorites").orderByValue().equalTo(url).addListenerForSingleValueEvent(new ValueEventListener() {
+         userRef.child("favorites").orderByValue().equalTo(url).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
@@ -161,9 +155,6 @@ public class NewsDeatilActivity extends AppCompatActivity {
         });
     }
     private boolean isFavorite() {
-        // Your code to check if the article is already marked as favorite in Firebase
-        // Return true if it is marked as favorite, otherwise return false
-        // For demonstration, return false by default
         return isFavorite;
     }
 }
