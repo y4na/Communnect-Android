@@ -29,6 +29,7 @@ public class NewsFragment extends Fragment implements CategoryRVAdapter.Category
 
     private final String api_key = "669ecbdf65f247a78f5d4d044101eeb2";
 
+
     private RecyclerView newsRV, categoryRV;
     private ProgressBar loadingPB;
     private ArrayList<Articles> articlesArrayList;
@@ -83,14 +84,14 @@ public class NewsFragment extends Fragment implements CategoryRVAdapter.Category
         RetrofitAPI retrofitAPI = retrofit.create(RetrofitAPI.class);
         Call<NewsModal> call;
 
-        if(query != null && !query.isEmpty()) {
-            String searchURL = "https://newsapi.org/v2/everything?q=" + query + "&apiKey=669ecbdf65f247a78f5d4d044101eeb2";
+        if (query != null && !query.isEmpty()) {
+            String searchURL = "v2/everything?q=" + query + "&apiKey=" + api_key;
             call = retrofitAPI.getNewsBySearch(searchURL);
-        } else if(category.equals("All")) {
-            String url = "https://newsapi.org/v2/top-headlines?country=us&language=en&apiKey=669ecbdf65f247a78f5d4d044101eeb2";
+        } else if (category.equals("All")) {
+            String url = "v2/top-headlines?country=us&language=en&apiKey=" + api_key;
             call = retrofitAPI.getAllNews(url);
         } else {
-            String categoryURL = "https://newsapi.org/v2/top-headlines?country=us&category=" + category + "&apiKey=669ecbdf65f247a78f5d4d044101eeb2";
+            String categoryURL = "v2/top-headlines?country=us&category=" + category + "&apiKey=" + api_key;
             call = retrofitAPI.getNewsByCategory(categoryURL);
         }
 
