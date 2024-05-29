@@ -53,7 +53,7 @@ public class ProfileFragment extends Fragment {
         changeSomeThingSaProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getActivity(), "Button clicked", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), "Edit Profile", Toast.LENGTH_SHORT).show();
 
                 // Get userId from arguments
                 Bundle args = getArguments();
@@ -95,6 +95,24 @@ public class ProfileFragment extends Fragment {
                             });
                         }
                     }
+                }
+            }
+        }else{
+            UserProfile userProfile = new UserProfile();
+            Bundle args = getArguments();
+            if (args != null) {
+                String userId = args.getString("userId");
+                if (userId != null) {
+                    userProfile.getFullname(userId, new UserProfile.FullNameCallback() {
+                        @Override
+                        public void onCallback(String fullName) {
+                            if (fullName != null) {
+                                setTextFullName.setText(fullName);
+                            } else {
+                                System.out.println("Failed to retrieve full name.");
+                            }
+                        }
+                    });
                 }
             }
         }

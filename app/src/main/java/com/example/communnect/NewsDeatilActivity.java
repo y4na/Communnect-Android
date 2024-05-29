@@ -28,9 +28,10 @@
 //    private TextView titleTV, subDescTV, contentTV;
 //    private ImageView newsIV, favoritesIV;
 //    private Button readNewsTV;
-//    private DatabaseReference userRef;
+//    private DatabaseReference userFavoritesRef;
 //    private FirebaseAuth mAuth;
 //    private boolean isFavorite = false;
+//
 //    @Override
 //    protected void onCreate(Bundle savedInstanceState) {
 //        super.onCreate(savedInstanceState);
@@ -45,10 +46,14 @@
 //        // Initialize Firebase Auth
 //        mAuth = FirebaseAuth.getInstance();
 //
-//        // Get Firebase Database reference for current user
+//        // Get Firebase Database reference for current user's favorites
 //        FirebaseDatabase database = FirebaseDatabase.getInstance();
-//        userRef = database.getReference("users").child(MainActivity.UserId);
-//
+//        if (mAuth.getCurrentUser() != null) {
+//            userFavoritesRef = database.getReference("users").child(mAuth.getCurrentUser().getUid()).child("favorites");
+//        } else {
+//            // Handle the case when the user is not authenticated
+//            // You might want to redirect the user to the login screen
+//        }
 //
 //        title = getIntent().getStringExtra("title");
 //        desc = getIntent().getStringExtra("desc");
@@ -89,81 +94,61 @@
 //                }
 //            }
 //        });
-//        if (isFavorite()) {
-//            favoritesIV.setImageResource(R.drawable.favorite_filled);
-//            isFavorite = true;
-//        }
 //
 //        checkIfFavorite();
 //    }
 //
 //    private void checkIfFavorite() {
-//        // Retrieve the user's favorite news from the database
-//        userRef.child("favorites").addListenerForSingleValueEvent(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(DataSnapshot dataSnapshot) {
-//                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-//                    String favoriteUrl = snapshot.getValue(String.class);
-//                    // Compare the URL of the current news item with the URLs of the user's favorite news
-//                    if (favoriteUrl.equals(url)) {
-//                        // If the current news item is among the favorites, mark it as favorite in the UI
-//                        favoritesIV.setImageResource(R.drawable.favorite_filled);
-//                        isFavorite = true;
-//                        return;
-//                    }
+//        if (userFavoritesRef != null) {
+//            userFavoritesRef.addListenerForSingleValueEvent(new ValueEventListener() {
+//                @Override
+//                public void onDataChange(DataSnapshot dataSnapshot) {
+//                    isFavorite = dataSnapshot.hasChild(url);
+//                    updateFavoriteIcon();
 //                }
-//                // If the current news item is not among the favorites, keep it as not favorite
-//                favoritesIV.setImageResource(R.drawable.favorite_border);
-//                isFavorite = false;
-//            }
 //
-//            @Override
-//            public void onCancelled(DatabaseError databaseError) {
-//                // Handle onCancelled
-//            }
-//        });
+//                @Override
+//                public void onCancelled(DatabaseError databaseError) {
+//                    // Handle onCancelled
+//                }
+//            });
+//        }
 //    }
+//
 //    private void markAsFavorite() {
-//        // Your code to save the article as favorite in Firebase
-//        // After successful marking, set isFavorite to true
-//        userRef.child("favorites").push().setValue(url)
-//                .addOnSuccessListener(aVoid -> {
-//                    Toast.makeText(NewsDeatilActivity.this, "Marked as Favorite", Toast.LENGTH_SHORT).show();
-//                    favoritesIV.setImageResource(R.drawable.favorite_filled);
-//                    isFavorite = true;
-//                })
-//                .addOnFailureListener(e -> Toast.makeText(NewsDeatilActivity.this, "Failed to mark as favorite", Toast.LENGTH_SHORT).show());
+//        if (userFavoritesRef != null) {
+//            userFavoritesRef.child(url).setValue(true)
+//                    .addOnSuccessListener(aVoid -> {
+//                        Toast.makeText(NewsDeatilActivity.this, "Marked as Favorite", Toast.LENGTH_SHORT).show();
+//                        isFavorite = true;
+//                        updateFavoriteIcon();
+//                    })
+//                    .addOnFailureListener(e -> Toast.makeText(NewsDeatilActivity.this, "Failed to mark as favorite", Toast.LENGTH_SHORT).show());
+//        }
 //    }
 //
 //    private void unmarkAsFavorite() {
-//        // Your code to remove the article from favorites in Firebase
-//        // After successful unmarking, set isFavorite to false
-//        // For demonstration, I assume you have a method to retrieve the key of the saved news
-//        userRef.child("favorites").orderByValue().equalTo(url).addListenerForSingleValueEvent(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(DataSnapshot dataSnapshot) {
-//                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-//                    snapshot.getRef().removeValue();
-//                    Toast.makeText(NewsDeatilActivity.this, "Removed from Favorites", Toast.LENGTH_SHORT).show();
-//                    favoritesIV.setImageResource(R.drawable.favorite_border);
-//                    isFavorite = false;
-//                }
-//            }
-//
-//            @Override
-//            public void onCancelled(DatabaseError databaseError) {
-//                // Handle onCancelled
-//            }
-//        });
+//        if (userFavoritesRef != null) {
+//            userFavoritesRef.child(url).removeValue()
+//                    .addOnSuccessListener(aVoid -> {
+//                        Toast.makeText(NewsDeatilActivity.this, "Removed from Favorites", Toast.LENGTH_SHORT).show();
+//                        isFavorite = false;
+//                        updateFavoriteIcon();
+//                    })
+//                    .addOnFailureListener(e -> Toast.makeText(NewsDeatilActivity.this, "Failed to remove from favorites", Toast.LENGTH_SHORT).show());
+//        }
 //    }
 //
-//    private boolean isFavorite() {
-//        // Your code to check if the article is already marked as favorite in Firebase
-//        // Return true if it is marked as favorite, otherwise return false
-//        // For demonstration, return false by default
-//        return isFavorite;
+//    private void updateFavoriteIcon() {
+//        if (isFavorite) {
+//            favoritesIV.setImageResource(R.drawable.favorite_filled);
+//        } else {
+//            favoritesIV.setImageResource(R.drawable.favorite_border);
+//        }
 //    }
 //}
+
+
 
 package com.example.communnect;
 
