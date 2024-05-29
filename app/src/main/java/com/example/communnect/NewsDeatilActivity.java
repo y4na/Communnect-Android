@@ -137,7 +137,7 @@ public class NewsDeatilActivity extends AppCompatActivity {
     }
 
     private void unmarkAsFavorite() {
-         userRef.child("favorites").orderByValue().equalTo(url).addListenerForSingleValueEvent(new ValueEventListener() {
+        userRef.child("favorites").orderByValue().equalTo(url).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
